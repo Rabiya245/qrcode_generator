@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        position: absolute;
+        top: 40px;
+        right: 30vw;
+        width:40vw;
+        height: 60vh;
+        text-align: center;
+        background-color: antiquewhite;
+    }
+    h1{
+        text-align: center;
+        font-size: xx-large;
+        color: green;
+    }
+    .gencode{
+     position: absolute;
+     right: 12vw;
+         width: 15vw;
+         height: 25vh;
+         align-items: center;
+         display: flex;
+         font-size: large;
+         
+         justify-content: center;
+         color: green;
+        
+    }
+ 
+</style>
+<body>
+
+    <div class="container"> 
+        <h1>QR code generator</h1>
+        <input type="text" id="text" placeholder="enter text or url" />
+        <button onclick="generateQRCode()"> generate QR Code</button>
+        <div class="gencode" id="qrcode"> </div>
+    </div>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+<script>
+    //cdn link for qrcode generator SEARCH IN GOOGLE ABT THIS
+    // below line is the library to generate qrcode 
+
+        function generateQRCode(){
+            const textt = document.getElementById("text").value;
+        const qrCodeContainer = document.getElementById("qrcode");
+        qrCodeContainer.innerHtml=""; 
+        if (textt.trim() !==""){
+            new QRCode(qrCodeContainer, { text: textt, width: 150, height:150 })
+
+        }
+        
+        }
+    
+</script>
+
+  
